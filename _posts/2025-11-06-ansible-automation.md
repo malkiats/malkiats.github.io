@@ -11,8 +11,6 @@ image:
 
 Ansible.Need I say more?  Well, maybe, if you've never heard of it. Ansible is a simple IT / DevOps automation that anyone can use.You can Automate anything with an SSH connection and WITHOUT installing any agents or clients. Join me as we set up, configure and start automating with Ansible!
 
-{% include embed/youtube.html id='w9eCU4bGgjQ' %}
-
 ## install
 
 ```bash
