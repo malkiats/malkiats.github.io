@@ -1,8 +1,10 @@
 ---
+layout: default
 title: Setting up k3s + AWX on Ubuntu (Master + Worker Nodes)
 date: 2025-12-04 06:01:42 -0500
-categories: [Python, DevOps, Code, Programmimg]
-tags: [Python, DevOps, Dev, Code]
+categories: [Python, DevOps, Code, Programming]
+tags: [kubernetes, k3s, awx, ansible, helm, ubuntu]
+excerpt: "Install k3s on two Ubuntu nodes (master + worker) and deploy AWX using the AWX Operator with Helm."
 ---
 
 # 🚀 Setting up k3s + AWX on Ubuntu (Master + Worker Nodes)
@@ -22,13 +24,13 @@ Table of contents
 
 ---
 
-## Prerequisites and System Setup
+## Prerequisites and System Setup {#prerequisites-and-system-setup}
 
 These steps should be done on both the master and worker nodes.
 
 System requirements
 - OS: Ubuntu 20.04 or 22.04
-- Minimum resources: 1 CPU, 2 GB RAM (AWX and cluster benefits from more)
+- Minimum resources: 1 CPU, 2 GB RAM (AWX and cluster benefit from more)
 - Connectivity: Internet access
 - Optional: static IPs recommended for master and worker
 
@@ -66,7 +68,7 @@ Note: If UFW blocks forwarded packets, follow the UFW docs to allow forwarding (
 
 ---
 
-## Install k3s (Master)
+## Install k3s (Master) {#install-k3s-master}
 
 Run the following only on the master node.
 
@@ -95,7 +97,7 @@ sudo cat /var/lib/rancher/k3s/server/node-token
 
 ---
 
-## Install k3s (Worker)
+## Install k3s (Worker) {#install-k3s-worker}
 
 Run on the worker node(s). Replace MASTER_IP and NODE_TOKEN with values from the master.
 
@@ -110,7 +112,7 @@ sudo systemctl status k3s-agent
 
 ---
 
-## Fix kubectl Permissions (Master Node)
+## Fix kubectl Permissions (Master Node) {#fix-kubectl-permissions}
 
 If you see permission issues for /etc/rancher/k3s/k3s.yaml, copy the kubeconfig to your user and fix ownership:
 
@@ -126,7 +128,7 @@ Note: When copying to another host, edit the server address in ~/.kube/config to
 
 ---
 
-## Verify Cluster
+## Verify Cluster {#verify-cluster}
 
 On the master:
 ```bash
@@ -138,7 +140,7 @@ You should see both master and worker with STATUS=Ready and core system pods (co
 
 ---
 
-## Install AWX Operator using Helm
+## Install AWX Operator using Helm {#install-awx-operator-helm}
 
 AWX Operator manages AWX lifecycle. You can install via a Helm chart or by applying manifests.
 
@@ -171,7 +173,7 @@ kubectl get pods -n awx
 
 ---
 
-## Deploy AWX Instance
+## Deploy AWX Instance {#deploy-awx-instance}
 
 Create an AWX custom resource. This example uses NodePort for quick access; for production use LoadBalancer or Ingress with TLS.
 
@@ -208,7 +210,7 @@ Storage note: AWX requires persistent storage (Postgres PV). k3s provides a defa
 
 ---
 
-## Access AWX UI
+## Access AWX UI {#access-awx-ui}
 
 Find the NodePort exposing AWX (lookup the service):
 ```bash
@@ -232,7 +234,7 @@ Notes:
 
 ---
 
-## Troubleshooting & Notes
+## Troubleshooting & Notes {#troubleshooting--notes}
 
 - If pods are Pending, check PVCs and storage class:
   ```bash
