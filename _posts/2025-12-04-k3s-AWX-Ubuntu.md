@@ -1,11 +1,8 @@
 ---
-layout: default
-title: "Setting up k3s + AWX on Ubuntu (Master + Worker Nodes)"
-description: "A concise, practical guide to deploy a lightweight k3s cluster on Ubuntu (master + worker) and install AWX using the AWX Operator and Helm."
-date: 2025-12-04
-tags: [kubernetes, k3s, awx, ansible, helm, ubuntu]
-categories: [howto, kubernetes]
-excerpt: "Deploy k3s on two Ubuntu nodes and run AWX via the AWX Operator. Includes firewall, kubeconfig, Helm install, and troubleshooting notes."
+title: Setting up k3s + AWX on Ubuntu (Master + Worker Nodes)
+date: 2025-12-04 06:01:42 -0500
+categories: [Python, DevOps, Code, Programmimg]
+tags: [Python, DevOps, Dev, Code]
 ---
 
 # 🚀 Setting up k3s + AWX on Ubuntu (Master + Worker Nodes)
