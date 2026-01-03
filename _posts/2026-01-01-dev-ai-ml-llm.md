@@ -1,5 +1,5 @@
 ---
-title: The Modern Ops Landscape: DevOps, AIOps, MLOps, and LLMOps
+title: "The Modern Ops Landscape: DevOps, AIOps, MLOps, and LLMOps"
 date: 2025-09-06 15:00:00 -0500
 categories: [Engineering, Operations]
 tags: [DevOps, AIOps, MLOps, LLMOps, Guide]
